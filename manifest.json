@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "doit",
+    "version": "1.0",
+    "description": "Track daily attendance and highlight days.",
+    "permissions": ["storage"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "taurus.png"
+    }
+  }
+  

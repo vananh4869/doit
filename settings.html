@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+      width: 400px;
+      height: 600px;
+    }
+    .setting-row {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Settings</h1>
+  <div class="setting-row">
+    <label for="dailyIncrement">Daily Increment (%):</label>
+    <input type="number" id="dailyIncrement" min="0" step="0.01">
+  </div>
+  <div class="setting-row">
+    <label for="weeklyIncrement">Weekly Increment (%):</label>
+    <input type="number" id="weeklyIncrement" min="0" step="0.01">
+  </div>
+  <div class="setting-row">
+    <label for="monthlyIncrement">Monthly Increment (%):</label>
+    <input type="number" id="monthlyIncrement" min="0" step="0.01">
+  </div>
+  <div class="setting-row">
+    <label for="quarterlyIncrement">Quarterly Increment (%):</label>
+    <input type="number" id="quarterlyIncrement" min="0" step="0.01">
+  </div>
+  <div class="setting-row">
+    <label for="yearlyIncrement">Yearly Increment (%):</label>
+    <input type="number" id="yearlyIncrement" min="0" step="0.01">
+  </div>
+  <button id="saveSettingsButton">Save</button>
+  <script src="settings.js"></script>
+</body>
+</html>
