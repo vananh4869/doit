@@ -1,90 +1,103 @@
 body {
-    width: 400px;
-    height: 600px;
+  width: 400px;
+  height: 600px;
 }
 
 #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
 }
-  
-.day {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-  
-.day.attended {
-    background-color: rgb(4, 247, 4);
-    color: white;
-    font-weight: bold;
-}
-  
-.day.not-attended {
-    background-color: rgb(201, 152, 152);
-    color: white;
-    font-weight: bold;
-}
-  
-#progressContainer {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    position: relative;
-  }
-  
-  #progressBar {
-    width: 0;
-    height: 20px;
-    background-color: #76c7c0;
-    border-radius: 4px;
-    position: relative;
-  }
-  
-  #progressText {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    line-height: 20px; /* Ensure the text is vertically centered */
-  }
 
-  #monthContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  #currentMonth {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  #prevMonth, #nextMonth , #settingsButton{
-    background-color: transparent;
-    border: none;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-  .day, .weekday {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-  }
-  
-  .weekday {
-    font-weight: bold;
-  }
-  
-  .setting-row {
-    margin-bottom: 10px;
-  }
+.day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.day.attended {
+  background-color: rgb(4, 247, 4);
+  color: white;
+  font-weight: bold;
+}
+
+.day.not-attended {
+  background-color: rgb(201, 152, 152);
+  color: white;
+  font-weight: bold;
+}
+
+#progressContainer {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#progressBar {
+  width: 0;
+  height: 20px;
+  background-color: #76c7c0;
+  border-radius: 4px;
+  position: relative;
+}
+
+#progressText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  line-height: 20px; /* Ensure the text is vertically centered */
+}
+
+#monthContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#currentMonth {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#prevMonth,
+#nextMonth {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.day,
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.weekday {
+  font-weight: bold;
+}
+
+.setting-row {
+  margin-bottom: 10px;
+}
+
+#settingsButton {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.today {
+  font-size: 20px;
+  border-color: red !important;
+  border-width: medium !important;
+}

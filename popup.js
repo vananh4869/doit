@@ -5,13 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentMonthElement = document.getElementById('currentMonth');
     const prevMonthButton = document.getElementById('prevMonth');
     const nextMonthButton = document.getElementById('nextMonth');
+    const settingsButton = document.getElementById('settingsButton');
     let currentMonth = new Date();
+    let today = new Date();
   
-    const progressIncrement = 100 / new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
+    //const progressIncrement = 100 / new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
+    const progressIncrement = 0.3; // TODO: 
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   
     function updateProgressBar(attendance) {
-      const attendedDays = Object.keys(attendance).length;
+      const attendedDays = Object.keys(attendance).map(monthKey => Object.keys(attendance[monthKey]).length).reduce((accumulator, currentValue) => accumulator + currentValue, 0); 
       const progress = attendedDays * progressIncrement;
       progressBar.style.width = `${progress}%`;
       progressText.textContent = `${progress.toFixed(2)}%`;
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         dayElement.classList.add('day');
         dayElement.textContent = i;
         dayElement.id = `day-${i}`;
+        if (today.getTime() == month.getTime()  && today.getDate() == i) {
+          dayElement.classList.add('today');
+        }
         calendar.appendChild(dayElement);
       }
   
@@ -59,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
   
-        updateProgressBar(monthlyAttendance);
+        updateProgressBar(attendance);
       });
     }
   
@@ -78,6 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
       currentMonth.setMonth(currentMonth.getMonth() + 1);
       updateCurrentMonth();
     });
+
+    settingsButton.addEventListener('click', function() {
+      chrome.tabs.create({ url: chrome.runtime.getURL('settings.html') });
+    });
+
+
   
     calendar.addEventListener('click', function(event) {
       if (event.target.classList.contains('day')) {
@@ -101,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
           attendance[monthKey] = monthlyAttendance;
           chrome.storage.sync.set({ attendance: attendance }, function() {
-            updateProgressBar(monthlyAttendance);
+            updateProgressBar(attendance);
           });
         });
       }
