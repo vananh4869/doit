@@ -3,19 +3,22 @@
   <head>
     <title>doit</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
   </head>
   <body>
-    <h1>KEEP DOING</h1>
+    <h1 class="font-effect-fire-animation">DON'T QUIT, DO IT</h1>
     <div id="progressContainer">
       <div id="progressBar"><span id="progressText">0%</span></div>
     </div>
     <div id="monthContainer">
-      <button id="prevMonth">&lt;</button>
+      <button id="prevMonth">&#8249;</button>
       <span id="currentMonth"></span>
-      <button id="nextMonth">&gt;</button>
+      <button id="nextMonth">&#8250;</button>
     </div>
     <div id="calendar"></div>
-    <button id="settingsButton">⚙️</button>
+    <div id="settingsButton"><a href="#"><i class="fa fa-gear"></i></a></div>
     <script src="popup.js"></script>
   </body>
 </html>

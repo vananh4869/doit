@@ -1,6 +1,11 @@
 body {
   width: 400px;
-  height: 600px;
+  height: 500px;
+  font-family: "Inter", sans-serif;
+}
+h1 {
+  font-family: Rancho;
+  font-size: 30px;
 }
 
 #calendar {
@@ -15,18 +20,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
 }
 
-.day.attended {
-  background-color: rgb(4, 247, 4);
-  color: white;
-  font-weight: bold;
+.day-out-of-current-month {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c7c7c7;
+  border: none;
 }
 
 .day.not-attended {
-  background-color: rgb(201, 152, 152);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.day.today {
+  color: #fff;
+  background-color: #008ffd;
+}
+
+.day.attended {
+  background-color: rgb(1, 160, 1);
   color: white;
   font-weight: bold;
 }
@@ -34,7 +53,7 @@ body {
 #progressContainer {
   width: 100%;
   background-color: #e0e0e0;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -42,8 +61,8 @@ body {
 #progressBar {
   width: 0;
   height: 20px;
-  background-color: #76c7c0;
-  border-radius: 4px;
+  background-color: #00ffea;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -52,7 +71,7 @@ body {
   width: 100%;
   text-align: center;
   font-weight: bold;
-  color: white;
+  color: rgb(248, 0, 0);
   line-height: 20px; /* Ensure the text is vertically centered */
 }
 
@@ -72,7 +91,7 @@ body {
 #nextMonth {
   background-color: transparent;
   border: none;
-  font-size: 1.2em;
+  font-size: 2em;
   cursor: pointer;
 }
 .day,
@@ -85,6 +104,7 @@ body {
 
 .weekday {
   font-weight: bold;
+  color: #aaaaaa;
 }
 
 .setting-row {
@@ -95,9 +115,4 @@ body {
   position: absolute;
   bottom: 10px;
   left: 10px;
-}
-.today {
-  font-size: 20px;
-  border-color: red !important;
-  border-width: medium !important;
 }

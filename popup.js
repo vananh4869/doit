@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
       calendar.innerHTML = ''; // Clear existing calendar
       const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
       const firstDay = new Date(month.getFullYear(), month.getMonth(), 1).getDay();
+      const daysInPreviousMonth = new Date(month.getFullYear(), month.getMonth(), 0).getDate();
+      let daysInNextMonth = 7 - (daysInMonth + firstDay) % 7; 
+      if (daysInNextMonth === 7) daysInNextMonth = 0;
   
       // Add weekdays header
       daysOfWeek.forEach(day => {
@@ -34,8 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   
       // Add empty days for the first week
+      // Add days of previous month
       for (let i = 0; i < firstDay; i++) {
         const emptyDayElement = document.createElement('div');
+        emptyDayElement.classList.add('day-out-of-current-month');
+        const previousDay = daysInPreviousMonth - firstDay + (i+1);
+        emptyDayElement.textContent = previousDay;
+        //emptyDayElement.id = `day-${previousDay}`;
         calendar.appendChild(emptyDayElement);
       }
   
@@ -50,6 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         calendar.appendChild(dayElement);
       }
+
+      // Add days of the next month
+      for (let i = 1; i <= daysInNextMonth; i++) {
+        const emptyDayElement = document.createElement('div');
+        emptyDayElement.classList.add('day-out-of-current-month');
+        emptyDayElement.textContent = i;
+        calendar.appendChild(emptyDayElement);
+      }
+
   
       chrome.storage.sync.get(['attendance'], function(data) {
         const attendance = data.attendance || {};
